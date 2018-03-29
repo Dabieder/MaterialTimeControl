@@ -49,7 +49,7 @@ export class WTimeComponent implements OnInit {
 
     if (!this.submitLabel) {
 
-      this.submitLabel = 'Okay'
+      this.submitLabel = 'OK'
     }
   }
 
