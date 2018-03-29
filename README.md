@@ -25,4 +25,35 @@ Install with the following command:
 		...
 	}
 
+	Set up the config of the time-picker in AppModule.ts
 
+	import { Component } from '@angular/core';
+
+	@Component({
+  		selector: 'app-root',
+  		templateUrl: './app.component.html',
+  		styleUrls: ['./app.component.scss']
+		})
+		export class AppComponent {
+
+  	private exportTime = { hour: 7, minute: 15, meriden: 'PM', format: 12 };
+	}
+
+	Use the component in your html
+
+	<div class="container">
+  	<form class="demo-form">
+    	<w-mat-timepicker color="primary" [(userTime)]="exportTime"></w-mat-timepicker>
+  	</form>
+	</div>
+
+	<mat-card>
+  	<mat-card-content>
+      <w-time color="primary" [(userTime)]="exportTime"></w-time>
+  	</mat-card-content>
+	</mat-card>
+
+## Run demo
+
+	npm install
+	npm start
