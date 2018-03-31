@@ -51,4 +51,4 @@ import {
   ]
 })
 
-export class MaterialTimeControlModule { }
+export class Angular5TimePickerModule { }

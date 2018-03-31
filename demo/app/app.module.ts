@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import { MaterialTimeControlModule } from '../../src/material-time-control.module';
+import { Angular5TimePickerModule } from '../../index';
 
 import {
   MatCardModule,
@@ -18,7 +18,7 @@ import {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialTimeControlModule,
+    Angular5TimePickerModule,
     MatCardModule
   ],
   providers: [],
