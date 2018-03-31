@@ -13,12 +13,12 @@ Install with the following command:
 
 ## Usage
 
-	import { MaterialTimeControlModule } from 'angular5-time-picker'
+	import { Angular5TimePickerModule } from 'angular5-time-picker'
 	@NgModule({
 	imports: [
 	      BrowserModule,
     		BrowserAnimationsModule,
-    		MaterialTimeControlModule,
+    		Angular5TimePickerModule,
   		],
 	})
 	export class AppModule {
