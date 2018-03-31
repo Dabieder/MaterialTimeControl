@@ -4,8 +4,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-
-import { Angular5TimePickerModule } from 'angular5-time-picker';
+import { Angular5TimePickerModule } from '../../index';
 
 import {
   MatCardModule,
