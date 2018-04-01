@@ -3,14 +3,14 @@
   "version": "0.0.6",
   "license": "MIT",
   "private": false,
-  "main": "material-time-control.module.ts",
+  "main": "dist/index.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve ./demo",
     "transpile": "ngc",
     "package": "rollup -c",
     "minify": "uglifyjs dist/bundles/timePicker.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/timePicker.umd.min.js",
-    "build": "npm run transpile && npm run package && npm run minify"
+    "build": "tsc"
   },
   "dependencies": {
     "@angular/animations": "^5.0.0",
@@ -49,7 +49,7 @@
     "rollup": "^0.53.3",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
-    "typescript": "^2.6.2",
+    "typescript": "^2.8.1",
     "uglify-js": "^3.3.4"
   },
   "repository": {}

@@ -10,5 +10,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  private exportTime = { hour: 7, minute: 15, meriden: 'PM', format: 12 };
+  public exportTime = { hour: 7, minute: 15, meriden: 'PM', format: 12 };
 }
