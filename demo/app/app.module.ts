@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import { Angular5TimePickerModule } from '../../dist/out-tsc/index';
+import { Angular5TimePickerModule } from '../../index';
 
 import {
   MatCardModule,
