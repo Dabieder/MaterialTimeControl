@@ -5,7 +5,7 @@
     "stripInternal": true,
     "experimentalDecorators": true,
     "strictNullChecks": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "module": "es2015",
     "moduleResolution": "node",
     "paths": {
@@ -19,7 +19,7 @@
     "target": "es5",
     "skipLibCheck": true,
     "lib": [
-      "es2015", 
+      "es2015",
       "dom"
     ]
   },

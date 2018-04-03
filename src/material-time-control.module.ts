@@ -1,21 +1,18 @@
-
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 import {
-    MatButtonModule, MatButtonToggleModule,
-    MatDialogModule, MatIconModule, MatInputModule,
-    MatSelectModule, MatToolbarModule,
-    MatFormFieldModule
+  MatButtonModule, MatButtonToggleModule,
+  MatDialogModule, MatIconModule, MatInputModule,
+  MatSelectModule, MatToolbarModule,
+  MatFormFieldModule
 } from '@angular/material';
 
-import {
-  WMatTimePickerComponent,
-  WTimeDialogComponent,
-  WClockComponent,
-  WTimeComponent
-} from './time-control';
+import {WMatTimePickerComponent} from './time-control/w-mat-timepicker/w-mat-timepicker.component';
+import {WTimeDialogComponent} from './time-control/w-time-dialog/w-time-dialog.component';
+import {WClockComponent} from './time-control/w-clock/w-clock.component';
+import {WTimeComponent} from './time-control/w-time/w-time.component';
 
 
 @NgModule({
@@ -51,4 +48,5 @@ import {
   ]
 })
 
-export class Angular5TimePickerModule { }
+export class Angular5TimePickerModule {
+}
