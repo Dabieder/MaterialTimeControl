@@ -14,13 +14,23 @@ Install with the following command:
 ## Usage
 
 	import { Angular5TimePickerModule } from 'angular5-time-picker'
+	import { TimepickerDirective } from 'angular5-time-picker';
 	@NgModule({
-	imports: [
-	      BrowserModule,
-    		BrowserAnimationsModule,
-    		Angular5TimePickerModule,
-  		],
-	})
+    declarations: [
+      AppComponent,
+      TimepickerDirective
+    ],
+    imports: [
+      BrowserModule,
+      BrowserAnimationsModule,
+      Angular5TimePickerModule,
+      MatCardModule,
+      MatFormFieldModule,
+      MatInputModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+  })
 	export class AppModule {
 		...
 	}
@@ -41,17 +51,11 @@ Install with the following command:
 
 	Use the component in your html
 
-	<div class="container">
-  	<form class="demo-form">
-    	<w-mat-timepicker color="primary" [(userTime)]="exportTime"></w-mat-timepicker>
-  	</form>
-	</div>
-
-	<mat-card>
-  	<mat-card-content>
-      <w-time color="primary" [(userTime)]="exportTime"></w-time>
-  	</mat-card-content>
-	</mat-card>
+	<mat-form-field>
+    <input matInput [matTimepicker]="picker" placeholder="Choose a time">
+    <mat-timepicker-toggle matSuffix [for]="picker"></mat-timepicker-toggle>
+    <mat-timepicker #picker color="primary"></mat-timepicker>
+  </mat-form-field>
 
 ## Run demo
 

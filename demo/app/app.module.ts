@@ -9,17 +9,23 @@ import { Angular5TimePickerModule } from '../../src/material-time-control.module
 
 import {
   MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
 } from '@angular/material';
+import { TimepickerDirective } from '../../src/timepicker.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TimepickerDirective
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     Angular5TimePickerModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

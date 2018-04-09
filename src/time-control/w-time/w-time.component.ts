@@ -1,6 +1,9 @@
 import {Component, Input, Output, OnInit, Inject, EventEmitter} from '@angular/core';
 
 import {CLOCK_TYPE, ITime} from '../w-clock/w-clock.component';
+import {TimepickerDirective} from "../../timepicker.directive";
+
+import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -199,6 +202,12 @@ export class WTimeComponent implements OnInit {
   public VIEW_MINUTES = CLOCK_TYPE.MINUTES;
   public currentView: CLOCK_TYPE = this.VIEW_HOURS;
 
+  /** Subscription to value changes in the associated input element. */
+  private _inputSubscription = Subscription.EMPTY;
+
+  /** The input element this timepicker is associated with. */
+  _timepickerInput: TimepickerDirective;
+
   constructor() {
   }
 
@@ -227,6 +236,9 @@ export class WTimeComponent implements OnInit {
   }
 
   public formatHour(): string {
+    if (!this.userTime) {
+      return '';
+    }
 
     if (this.userTime.format === 24) {
       if (this.userTime.hour === 24) {
@@ -239,6 +251,9 @@ export class WTimeComponent implements OnInit {
   }
 
   public formatMinute(): string {
+    if (!this.userTime) {
+      return '';
+    }
 
     if (this.userTime.minute === 0) {
       return '00';

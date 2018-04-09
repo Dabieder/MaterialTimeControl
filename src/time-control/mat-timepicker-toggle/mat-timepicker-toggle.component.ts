@@ -7,7 +7,7 @@ import {WTimeComponent} from "../w-time/w-time.component";
 
 
 @Component({
-  selector: 'w-mat-timepicker',
+  selector: 'mat-timepicker-toggle',
   styles: [`
     .time-picker-button {
       padding: 0;
@@ -17,24 +17,14 @@ import {WTimeComponent} from "../w-time/w-time.component";
   `],
   template: `
     <div fxFlex fxLayout="row" class="w-mat-timepicker">
-
-      <mat-form-field fxFlex class="timeContainer">
-        <input matInput
-               class="timeInput"
-               placeholder="Select time"
-               id="time_Control"
-               name="time_Control"
-               [value]="time"
-        >
-        <button mat-button (click)="showPicker($event)" class="time-picker-button">
-          <mat-icon>access_time</mat-icon>
-        </button>
-      </mat-form-field>
+      <button mat-button (click)="showPicker($event)" class="time-picker-button">
+        <mat-icon>access_time</mat-icon>
+      </button>
     </div>
   `
 })
 
-export class WMatTimePickerComponent implements OnInit {
+export class MatTimepickerToggleComponent implements OnInit {
 
   @Input() userTime: ITime;
   @Output() userTimeChange: EventEmitter<ITime> = new EventEmitter();
@@ -96,12 +86,12 @@ export class WMatTimePickerComponent implements OnInit {
 
       data: {
         time: {
-          hour: this.userTime.hour,
-          minute: this.userTime.minute,
-          meriden: this.userTime.meriden,
-          format: this.userTime.format
+          hour: this.timepicker.userTime ? this.timepicker.userTime.hour : 6,
+          minute: this.timepicker.userTime ? this.timepicker.userTime.minute : 0,
+          meriden: this.timepicker.userTime ? this.timepicker.userTime.meriden : 'PM',
+          format: this.timepicker.userTime ? this.timepicker.userTime.format : 12
         },
-        color: this.color
+        color: this.timepicker.color
       }
     });
 
@@ -112,7 +102,7 @@ export class WMatTimePickerComponent implements OnInit {
         if (result === undefined) {
           return;
         } else if (result !== -1) {
-          this.userTime = result;
+          this.timepicker.userTime = result;
           this.emituserTimeChange();
         }
       });

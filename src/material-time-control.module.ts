@@ -13,6 +13,9 @@ import {WMatTimePickerComponent} from './time-control/w-mat-timepicker/w-mat-tim
 import {WTimeDialogComponent} from './time-control/w-time-dialog/w-time-dialog.component';
 import {WClockComponent} from './time-control/w-clock/w-clock.component';
 import {WTimeComponent} from './time-control/w-time/w-time.component';
+import {MatTimepickerComponent} from './time-control/mat-timepicker/mat-timepicker.component';
+import {MatTimepickerToggleComponent} from './time-control/mat-timepicker-toggle/mat-timepicker-toggle.component';
+import {TimepickerDirective} from './timepicker.directive';
 
 
 @NgModule({
@@ -21,6 +24,9 @@ import {WTimeComponent} from './time-control/w-time/w-time.component';
     WTimeDialogComponent,
     WClockComponent,
     WTimeComponent,
+    MatTimepickerComponent,
+    MatTimepickerToggleComponent,
+    TimepickerDirective
   ],
   imports: [
     MatButtonModule,
@@ -39,12 +45,17 @@ import {WTimeComponent} from './time-control/w-time/w-time.component';
     WTimeDialogComponent,
     WClockComponent,
     WTimeComponent,
+    MatTimepickerComponent,
+    MatTimepickerToggleComponent,
+    TimepickerDirective
   ],
   entryComponents: [
     WMatTimePickerComponent,
     WTimeDialogComponent,
     WClockComponent,
     WTimeComponent,
+    MatTimepickerComponent,
+    MatTimepickerToggleComponent
   ]
 })
 

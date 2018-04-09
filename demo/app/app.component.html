@@ -1,8 +1,14 @@
-<div class="container">
-  <form class="demo-form">
-    <w-mat-timepicker color="primary" [(userTime)]="exportTime"></w-mat-timepicker>
-  </form>
-</div>
+<!--<div class="container">-->
+  <!--<form class="demo-form">-->
+    <!--<w-mat-timepicker color="primary" [(userTime)]="exportTime"></w-mat-timepicker>-->
+  <!--</form>-->
+<!--</div>-->
+
+<mat-form-field>
+  <input matInput [matTimepicker]="picker" placeholder="Choose a time">
+  <mat-timepicker-toggle matSuffix [for]="picker"></mat-timepicker-toggle>
+  <mat-timepicker #picker color="primary"></mat-timepicker>
+</mat-form-field>
 
 <mat-card>
   <mat-card-content>
