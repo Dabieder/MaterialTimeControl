@@ -111,6 +111,6 @@ export class MatTimepickerToggleComponent implements OnInit {
 
   private emituserTimeChange() {
 
-    this.userTimeChange.emit(this.userTime);
+    this.userTimeChange.emit(this.timepicker.userTime);
   }
 }
