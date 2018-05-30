@@ -1,4 +1,4 @@
-import {MAT_INPUT_VALUE_ACCESSOR} from '@angular/material/input';
+import { MAT_INPUT_VALUE_ACCESSOR } from '@angular/material/input';
 
 import {
   Directive,
@@ -17,7 +17,7 @@ import {
   ValidatorFn,
   Validators
 } from '@angular/forms';
-import {WTimeComponent} from "./time-control/w-time/w-time.component";
+import { WTimeComponent } from "./time-control/w-time/w-time.component";
 
 export const MAT_TIMEPICKER_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -37,9 +37,9 @@ export class MatTimepickerInputEvent {
   value: string;
 
   constructor(/** Reference to the timepicker input component that emitted the event. */
-              public target: TimepickerDirective,
-              /** Reference to the native input element associated with the timepicker input. */
-              public targetElement: HTMLElement) {
+    public target: TimepickerDirective,
+    /** Reference to the native input element associated with the timepicker input. */
+    public targetElement: HTMLElement) {
     this.value = this.target.value;
   }
 }
@@ -47,7 +47,7 @@ export class MatTimepickerInputEvent {
 @Directive({
   selector: 'input[matTimepicker]',
   providers: [
-    {provide: MAT_INPUT_VALUE_ACCESSOR, useExisting: TimepickerDirective},
+    { provide: MAT_INPUT_VALUE_ACCESSOR, useExisting: TimepickerDirective },
   ],
   exportAs: 'matTimepickerInput',
 })
@@ -74,21 +74,30 @@ export class TimepickerDirective {
       let hour = `${this.timepicker.userTime.hour}`;
       if (this.timepicker.userTime.hour === 24) {
         hour = '00';
+      } else if (this.timepicker.userTime.hour) {
+        hour = `0${hour}`;
       }
 
       if (this.timepicker.userTime.minute === 0) {
-        this._elementRef.nativeElement.value = `${hour}:00 ${meriden}`;
-        return `${hour}:00 ${meriden}`;
+        let value = `${hour}:00`;
+        if (meriden) value += ` ${meriden}`;
+        this._elementRef.nativeElement.value = value;
+        return value;
 
       } else if (this.timepicker.userTime.minute < 10) {
 
         const tt = '0' + String(this.timepicker.userTime.minute);
-        this._elementRef.nativeElement.value = `${hour}:${tt} ${meriden}`;
-        return `${hour}:${tt} ${meriden}`;
+        let value = `${hour}:${tt}`;
+        if (meriden) value += ` ${meriden}`;
+        this._elementRef.nativeElement.value = value;
+        return value;
 
       } else {
-        this._elementRef.nativeElement.value = `${hour}:${this.timepicker.userTime.minute} ${meriden}`;
-        return `${hour}:${this.timepicker.userTime.minute} ${meriden}`;
+        let value = `${hour}:${this.timepicker.userTime.minute}`;
+        if (meriden) value += ` ${meriden}`;
+        this._elementRef.nativeElement.value = value;
+
+        return value;
       }
     }
 

@@ -1,9 +1,9 @@
-import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
-import {MatDialog} from '@angular/material';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 
-import {WTimeDialogComponent} from '../w-time-dialog/w-time-dialog.component';
-import {ITime} from '../w-clock/w-clock.component';
-import {WTimeComponent} from "../w-time/w-time.component";
+import { WTimeDialogComponent } from '../w-time-dialog/w-time-dialog.component';
+import { ITime } from '../w-clock/w-clock.component';
+import { WTimeComponent } from "../w-time/w-time.component";
 
 
 @Component({
@@ -67,15 +67,21 @@ export class MatTimepickerToggleComponent implements OnInit {
     }
 
     if (this.userTime.minute === 0) {
-      return `${hour}:00 ${meriden}`;
+      let value = `${hour}:00`;
+      if (meriden) value += ` ${meriden}`;
+      return value;
 
     } else if (this.userTime.minute < 10) {
 
       const tt = '0' + String(this.userTime.minute);
-      return `${hour}:${tt} ${meriden}`;
+      let value = `${hour}:${tt}`;
+      if (meriden) value += ` ${meriden}`;
+      return value;
 
     } else {
-      return `${hour}:${this.userTime.minute} ${meriden}`;
+      let value = `${hour}:${this.userTime.minute}`;
+      if (meriden) value += ` ${meriden}`;
+      return value;
     }
   }
 
