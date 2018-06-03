@@ -1,20 +1,17 @@
-import {Component, Input, Output, OnInit, Inject, EventEmitter} from '@angular/core';
+import { Component, Input, Output, OnInit, Inject, EventEmitter } from '@angular/core';
 
-import {CLOCK_TYPE, ITime} from '../w-clock/w-clock.component';
-import {TimepickerDirective} from "../../timepicker.directive";
+import { CLOCK_TYPE, ITime } from '../w-clock/w-clock.component';
+import { TimepickerDirective } from '../../timepicker.directive';
 
-import {Subscription} from 'rxjs';
-
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'mat-timepicker',
   template: ``,
 
-  styles: [``]
-
+  styles: [``],
 })
 export class MatTimepickerComponent implements OnInit {
-
   @Input() userTime: ITime;
   @Output() userTimeChange: EventEmitter<ITime> = new EventEmitter();
 
@@ -36,13 +33,10 @@ export class MatTimepickerComponent implements OnInit {
   /** The input element this timepicker is associated with. */
   _timepickerInput: TimepickerDirective;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
-
     if (!this.userTime) {
-
       // this.userTime = {
       //
       //   hour: 6,
@@ -53,13 +47,11 @@ export class MatTimepickerComponent implements OnInit {
     }
 
     if (!this.revertLabel) {
-
-      this.revertLabel = 'Cancel'
+      this.revertLabel = 'Cancel';
     }
 
     if (!this.submitLabel) {
-
-      this.submitLabel = 'OK'
+      this.submitLabel = 'OK';
     }
   }
 
@@ -93,27 +85,22 @@ export class MatTimepickerComponent implements OnInit {
   }
 
   public setCurrentView(type: CLOCK_TYPE) {
-
     this.currentView = type;
   }
 
   public setMeridien(m: 'PM' | 'AM') {
-
     this.userTime.meriden = m;
   }
 
   public revert() {
-
     this.onRevert.emit();
   }
 
   public submit() {
-
     this.onSubmit.emit(this.userTime);
   }
 
   public emituserTimeChange(event) {
-
     this.userTimeChange.emit(this.userTime);
   }
 }

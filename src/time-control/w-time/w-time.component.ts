@@ -1,10 +1,9 @@
-import {Component, Input, Output, OnInit, Inject, EventEmitter} from '@angular/core';
+import { Component, Input, Output, OnInit, Inject, EventEmitter } from '@angular/core';
 
-import {CLOCK_TYPE, ITime} from '../w-clock/w-clock.component';
-import {TimepickerDirective} from "../../timepicker.directive";
+import { CLOCK_TYPE, ITime } from '../w-clock/w-clock.component';
+import { TimepickerDirective } from '../../timepicker.directive';
 
-import {Subscription} from 'rxjs';
-
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'w-time',
@@ -34,159 +33,162 @@ import {Subscription} from 'rxjs';
     </div>
   `,
 
-  styles: [`
-    :host {
-      display: block;
-    }
-
-    .w-time {
-      max-height: 100%;
-      min-height: 350px;
-      height: 450px;
-    }
-
-    .w-timepicker-time-container {
-      padding: 15px;
-      min-width: 160px;
-      width: 100%;
-    }
-
-    .w-timepicker-time-container.mat-toolbar-single-row  {
-      height: 120px;
-    }
-    .w-timepicker-selected-time {
-      font-size: 3.5rem;
-      font-weight: 400;
-      display: flex;
-    }
-    .w-timepicker-selected-ampm {
-      font-size: 1rem;
-      line-height: 1.3rem;
-      padding-top: 1rem;
-    }
-    .w-time-content {
-      width: 100%;
-      height: 100%;
-      padding: 6px;
-    }
-
-    w-clock {
-      padding: 0 0;
-      height: calc(100% - 58px);
-    }
-
-    .w-time.vertical-time {
-      height: auto;
-    }
-
-    .w-timepicker-selected-ampm {
-      padding: 8px 12px;
-    }
-
-    .w-timepicker-selected-time > span, .w-timepicker-selected-ampm > span {
-      outline: 0;
-      opacity: 0.5;
-    }
-
-    .w-timepicker-selected-time > span:not(.active), .w-timepicker-selected-ampm > span:not(.active) {
-      cursor: pointer;
-    }
-
-    .w-timepicker-selected-time > span.active, .w-timepicker-selected-ampm > span.active {
-      opacity: 1;
-    }
-
-    .w-animate-next {
-      opacity: 0;
-      -webkit-transform: translate3d(50%, 0, 1px);
-      transform: translate3d(50%, 0, 1px);
-    }
-
-    .w-animate-next-remove {
-      -webkit-transition: all 0.5s cubic-bezier(0.35, 0, 0.25, 1);
-      transition: all 0.5s cubic-bezier(0.35, 0, 0.25, 1);
-      opacity: 0;
-      -webkit-transform: translate3d(50%, 0, 1px);
-      transform: translate3d(50%, 0, 1px);
-    }
-
-    .w-animate-next-remove-active {
-      opacity: 1;
-      -webkit-transform: translate3d(0, 0, 1px);
-      transform: translate3d(0, 0, 1px);
-    }
-
-    .w-animate-prev {
-      opacity: 0;
-      -webkit-transform: translate3d(-50%, 0, 1px);
-      transform: translate3d(-50%, 0, 1px);
-    }
-
-    .w-animate-prev-remove {
-      -webkit-transition: all 0.3s cubic-bezier(0.35, 0, 0.25, 1);
-      transition: all 0.3s cubic-bezier(0.35, 0, 0.25, 1);
-      opacity: 0;
-      -webkit-transform: translate3d(-50%, 0, 1px);
-      transform: translate3d(-50%, 0, 1px);
-    }
-
-    .w-animate-prev-remove-active {
-      opacity: 1;
-      -webkit-transform: translate3d(0, 0, 1px);
-      transform: translate3d(0, 0, 1px);
-    }
-
-    @-webkit-keyframes w-animation-bounce {
-      from {
-        opacity: 0;
-        -webkit-transform: scale(0.95);
-        transform: scale(0.95);
+  styles: [
+    `
+      :host {
+        display: block;
       }
 
-      70% {
+      .w-time {
+        max-height: 100%;
+        min-height: 350px;
+        height: 450px;
+      }
+
+      .w-timepicker-time-container {
+        padding: 15px;
+        min-width: 160px;
+        width: 100%;
+      }
+
+      .w-timepicker-time-container.mat-toolbar-single-row {
+        height: 120px;
+      }
+      .w-timepicker-selected-time {
+        font-size: 3.5rem;
+        font-weight: 400;
+        display: flex;
+      }
+      .w-timepicker-selected-ampm {
+        font-size: 1rem;
+        line-height: 1.3rem;
+        padding-top: 1rem;
+      }
+      .w-time-content {
+        width: 100%;
+        height: 100%;
+        padding: 6px;
+      }
+
+      w-clock {
+        padding: 0 0;
+        height: calc(100% - 58px);
+      }
+
+      .w-time.vertical-time {
+        height: auto;
+      }
+
+      .w-timepicker-selected-ampm {
+        padding: 8px 12px;
+      }
+
+      .w-timepicker-selected-time > span,
+      .w-timepicker-selected-ampm > span {
+        outline: 0;
+        opacity: 0.5;
+      }
+
+      .w-timepicker-selected-time > span:not(.active),
+      .w-timepicker-selected-ampm > span:not(.active) {
+        cursor: pointer;
+      }
+
+      .w-timepicker-selected-time > span.active,
+      .w-timepicker-selected-ampm > span.active {
         opacity: 1;
-        -webkit-transform: scale(1.05);
-        transform: scale(1.05);
       }
 
-      to {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-      }
-    }
-
-    @keyframes w-animation-bounce {
-      from {
+      .w-animate-next {
         opacity: 0;
-        -webkit-transform: scale(0.95);
-        transform: scale(0.95);
+        -webkit-transform: translate3d(50%, 0, 1px);
+        transform: translate3d(50%, 0, 1px);
       }
 
-      70% {
+      .w-animate-next-remove {
+        -webkit-transition: all 0.5s cubic-bezier(0.35, 0, 0.25, 1);
+        transition: all 0.5s cubic-bezier(0.35, 0, 0.25, 1);
+        opacity: 0;
+        -webkit-transform: translate3d(50%, 0, 1px);
+        transform: translate3d(50%, 0, 1px);
+      }
+
+      .w-animate-next-remove-active {
         opacity: 1;
-        -webkit-transform: scale(1.05);
-        transform: scale(1.05);
+        -webkit-transform: translate3d(0, 0, 1px);
+        transform: translate3d(0, 0, 1px);
       }
 
-      to {
-        -webkit-transform: scale(1);
-        transform: scale(1);
+      .w-animate-prev {
+        opacity: 0;
+        -webkit-transform: translate3d(-50%, 0, 1px);
+        transform: translate3d(-50%, 0, 1px);
       }
-    }
 
-    .w-animation-zoom.ng-enter {
-      -webkit-transition: all 0.3s cubic-bezier(0.35, 0, 0.25, 1);
-      transition: all 0.3s cubic-bezier(0.35, 0, 0.25, 1);
-      -webkit-animation-duration: 0.3s;
-      animation-duration: 0.3s;
-      -webkit-animation-name: w-animation-bounce;
-      animation-name: w-animation-bounce;
-    }
-  `]
+      .w-animate-prev-remove {
+        -webkit-transition: all 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+        transition: all 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+        opacity: 0;
+        -webkit-transform: translate3d(-50%, 0, 1px);
+        transform: translate3d(-50%, 0, 1px);
+      }
 
+      .w-animate-prev-remove-active {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 1px);
+        transform: translate3d(0, 0, 1px);
+      }
+
+      @-webkit-keyframes w-animation-bounce {
+        from {
+          opacity: 0;
+          -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+        }
+
+        70% {
+          opacity: 1;
+          -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+        }
+
+        to {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+      }
+
+      @keyframes w-animation-bounce {
+        from {
+          opacity: 0;
+          -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+        }
+
+        70% {
+          opacity: 1;
+          -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+        }
+
+        to {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+      }
+
+      .w-animation-zoom.ng-enter {
+        -webkit-transition: all 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+        transition: all 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+        -webkit-animation-duration: 0.3s;
+        animation-duration: 0.3s;
+        -webkit-animation-name: w-animation-bounce;
+        animation-name: w-animation-bounce;
+      }
+    `,
+  ],
 })
 export class WTimeComponent implements OnInit {
-
   @Input() userTime: ITime;
   @Output() userTimeChange: EventEmitter<ITime> = new EventEmitter();
 
@@ -208,30 +210,24 @@ export class WTimeComponent implements OnInit {
   /** The input element this timepicker is associated with. */
   _timepickerInput: TimepickerDirective;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
-
     if (!this.userTime) {
-
       this.userTime = {
-
         hour: 6,
         minute: 0,
         meriden: 'PM',
-        format: 12
+        format: 12,
       };
     }
 
     if (!this.revertLabel) {
-
-      this.revertLabel = 'Cancel'
+      this.revertLabel = 'Cancel';
     }
 
     if (!this.submitLabel) {
-
-      this.submitLabel = 'OK'
+      this.submitLabel = 'OK';
     }
   }
 
@@ -265,27 +261,22 @@ export class WTimeComponent implements OnInit {
   }
 
   public setCurrentView(type: CLOCK_TYPE) {
-
     this.currentView = type;
   }
 
   public setMeridien(m: 'PM' | 'AM') {
-
     this.userTime.meriden = m;
   }
 
   public revert() {
-
     this.onRevert.emit();
   }
 
   public submit() {
-
     this.onSubmit.emit(this.userTime);
   }
 
   public emituserTimeChange(event) {
-
     this.userTimeChange.emit(this.userTime);
   }
 }

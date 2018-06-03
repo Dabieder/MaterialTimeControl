@@ -1,22 +1,25 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import {
-  MatButtonModule, MatButtonToggleModule,
-  MatDialogModule, MatIconModule, MatInputModule,
-  MatSelectModule, MatToolbarModule,
-  MatFormFieldModule
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatDialogModule,
+  MatIconModule,
+  MatInputModule,
+  MatSelectModule,
+  MatToolbarModule,
+  MatFormFieldModule,
 } from '@angular/material';
 
-import {WMatTimePickerComponent} from './time-control/w-mat-timepicker/w-mat-timepicker.component';
-import {WTimeDialogComponent} from './time-control/w-time-dialog/w-time-dialog.component';
-import {WClockComponent} from './time-control/w-clock/w-clock.component';
-import {WTimeComponent} from './time-control/w-time/w-time.component';
-import {MatTimepickerComponent} from './time-control/mat-timepicker/mat-timepicker.component';
-import {MatTimepickerToggleComponent} from './time-control/mat-timepicker-toggle/mat-timepicker-toggle.component';
-import {TimepickerDirective} from './timepicker.directive';
-
+import { WMatTimePickerComponent } from './time-control/w-mat-timepicker/w-mat-timepicker.component';
+import { WTimeDialogComponent } from './time-control/w-time-dialog/w-time-dialog.component';
+import { WClockComponent } from './time-control/w-clock/w-clock.component';
+import { WTimeComponent } from './time-control/w-time/w-time.component';
+import { MatTimepickerComponent } from './time-control/mat-timepicker/mat-timepicker.component';
+import { MatTimepickerToggleComponent } from './time-control/mat-timepicker-toggle/mat-timepicker-toggle.component';
+import { TimepickerDirective } from './timepicker.directive';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,7 @@ import {TimepickerDirective} from './timepicker.directive';
     WTimeComponent,
     MatTimepickerComponent,
     MatTimepickerToggleComponent,
-    TimepickerDirective
+    TimepickerDirective,
   ],
   imports: [
     MatButtonModule,
@@ -47,7 +50,7 @@ import {TimepickerDirective} from './timepicker.directive';
     WTimeComponent,
     MatTimepickerComponent,
     MatTimepickerToggleComponent,
-    TimepickerDirective
+    TimepickerDirective,
   ],
   entryComponents: [
     WMatTimePickerComponent,
@@ -55,9 +58,7 @@ import {TimepickerDirective} from './timepicker.directive';
     WClockComponent,
     WTimeComponent,
     MatTimepickerComponent,
-    MatTimepickerToggleComponent
-  ]
+    MatTimepickerToggleComponent,
+  ],
 })
-
-export class Angular5TimePickerModule {
-}
+export class Angular6TimePickerModule {}

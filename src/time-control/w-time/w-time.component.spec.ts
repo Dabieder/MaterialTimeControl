@@ -8,9 +8,8 @@ describe('WTimeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WTimeComponent ]
-    })
-    .compileComponents();
+      declarations: [WTimeComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
