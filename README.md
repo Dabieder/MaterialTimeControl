@@ -1,4 +1,4 @@
-#angular5-time-picker
+## Angular Material Style Time Picker
 This module is a fork from https://github.com/SteveDunlap13/MaterialTimeControl.
 
 It provides a time picker component compatible with Angular Material 5.
